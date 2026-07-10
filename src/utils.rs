@@ -115,7 +115,9 @@ impl AnalysisMetrics {
     }
 }
 
-/// Detect potential issues in token analysis
+/// Describe simple patterns in caller-supplied confidence values.
+///
+/// This function does not assess factuality or derive the supplied scores.
 pub fn detect_issues(analysis: &TokenAnalysis) -> Vec<String> {
     let mut issues = Vec::new();
 
@@ -139,7 +141,7 @@ pub fn detect_issues(analysis: &TokenAnalysis) -> Vec<String> {
         let confidences: Vec<f64> = window.iter().map(|t| t.confidence).collect();
         if confidences[1] < confidences[0] - 0.4 && confidences[1] < confidences[2] - 0.4 {
             issues.push(
-                "Detected sudden confidence drop (potential hallucination point)".to_string(),
+                "Found a sudden drop in the supplied confidence scores".to_string(),
             );
             break;
         }
@@ -153,8 +155,7 @@ pub fn detect_issues(analysis: &TokenAnalysis) -> Vec<String> {
         } else {
             if overconfident_streak > 5 {
                 issues.push(
-                    "Detected long sequence of overconfident tokens (potential hallucination)"
-                        .to_string(),
+                    "Found a long sequence of supplied confidence scores above 0.95".to_string(),
                 );
             }
             overconfident_streak = 0;

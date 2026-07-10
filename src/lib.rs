@@ -43,7 +43,7 @@ pub fn quick_analyze(text: &str, format: &str) -> Result<String> {
     visualize_tokens(text, &analysis, format, Some(config))
 }
 
-/// Comprehensive analysis with issue detection
+/// Summarize the supplied confidence values and flag ranges.
 pub fn analyze_with_issues(analysis: &TokenAnalysis) -> (utils::AnalysisMetrics, Vec<String>) {
     let metrics = utils::AnalysisMetrics::from_analysis(analysis);
     let issues = utils::detect_issues(analysis);
