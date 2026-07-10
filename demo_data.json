@@ -46,31 +46,31 @@
       "start": 6,
       "end": 7,
       "flag": "fact",
-      "description": "Historical construction date - verifiable fact"
+      "description": "Caller-supplied demo label; not independently verified"
     },
     {
       "start": 10,
       "end": 13,
       "flag": "fact",
-      "description": "Physical measurement - well-documented specification"
+      "description": "Caller-supplied demo label; not independently verified"
     },
     {
       "start": 18,
       "end": 25,
-      "flag": "hallucination",
-      "description": "Completely false claim - Eiffel Tower was never purple and has no connection to flag colors"
+      "flag": "uncertain",
+      "description": "Caller-supplied demo label; not independently verified"
     },
     {
       "start": 29,
       "end": 32,
       "flag": "fact",
-      "description": "Architectural feature - three public levels"
+      "description": "Caller-supplied demo label; not independently verified"
     },
     {
       "start": 34,
       "end": 39,
       "flag": "uncertain",
-      "description": "Visitor statistics - approximate numbers that change yearly"
+      "description": "Caller-supplied demo label; not independently verified"
     }
   ]
 }

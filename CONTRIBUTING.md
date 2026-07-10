@@ -1,22 +1,26 @@
-# Contributing to LLM-Hallucination-Detection-Script
+# Contributing to the token confidence visualizer
 
-Thanks for your interest. Contributions that improve detection accuracy, add new methods, extend provider integrations, or add test coverage are all welcome.
+This repository ships a Rust renderer for caller-supplied token confidence
+scores and flags. Contributions should stay within that scope.
 
-## What we want
+Useful changes include:
 
-- **New detection methods** -- additional heuristics or ML-based approaches
-- **Provider integrations** -- examples using Mistral, Gemini, local models
-- **Rust MVP improvements** -- better streaming detection, new dashboard features
-- **Bug fixes** -- correctness issues, edge cases, false positive reduction
-- **Tests** -- more labeled examples, accuracy benchmarks
+- renderer correctness and accessibility;
+- input validation and error handling;
+- terminal, HTML, and Markdown output tests;
+- documentation of the supplied-data contract; and
+- dependency and CI maintenance.
 
-## How to contribute
+Do not describe the crate as a hallucination detector, fact checker, confidence
+estimator, safety system, or production benchmark. New detection or verification
+systems require a separate, evidenced project and are outside this repository's
+current scope.
 
-1. Fork and clone
-2. Python: `python -m pytest tests/` must pass
-3. Rust: `cargo test --all` must pass
-4. Open a PR with a description of the change and why
+Before opening a pull request, run:
 
-## Questions
+```console
+cargo fmt --check
+cargo test
+```
 
-Open a [Discussion](https://github.com/Mattbusel/LLM-Hallucination-Detection-Script/discussions) for design questions or ideas before building.
+Explain the user-visible behavior changed and include tests where practical.

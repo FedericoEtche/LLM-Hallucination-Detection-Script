@@ -13,7 +13,7 @@ use renderer::{HtmlRenderer, MarkdownRenderer, Renderer, TerminalRenderer};
 #[derive(Parser)]
 #[command(name = "llm-token-visualizer")]
 #[command(
-    about = "Visualize LLM output token-by-token to detect hallucinations and confidence shifts"
+    about = "Render caller-supplied token confidence scores and flags"
 )]
 struct Args {
     /// LLM response text
@@ -165,10 +165,10 @@ fn load_demo_data() -> Result<(String, TokenAnalysis)> {
             {"text": ".", "confidence": 0.99}
         ],
         "flags": [
-            {"start": 6, "end": 7, "flag": "fact", "description": "Historical date - high confidence"},
-            {"start": 9, "end": 11, "flag": "fact", "description": "Physical measurement - verifiable"},
-            {"start": 35, "end": 36, "flag": "uncertain", "description": "Estimate without specific data"},
-            {"start": 25, "end": 27, "flag": "fact", "description": "Historical attribution"}
+            {"start": 6, "end": 7, "flag": "fact", "description": "Caller-supplied demo label"},
+            {"start": 9, "end": 11, "flag": "fact", "description": "Caller-supplied demo label"},
+            {"start": 35, "end": 36, "flag": "uncertain", "description": "Caller-supplied demo label"},
+            {"start": 25, "end": 27, "flag": "fact", "description": "Caller-supplied demo label"}
         ]
     }"#;
 
